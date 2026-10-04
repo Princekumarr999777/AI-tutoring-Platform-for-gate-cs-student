@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - uses: snok/install-poetry@v1
+        with: {version: '1.8.3'}
+      - run: poetry install
+        working-directory: apps/api
+      - run: poetry run pytest ../../tests --cov=src --cov-report=xml
+        working-directory: apps/api
+      - uses: docker/build-push-action@v6
+        with: {context: ./apps/api, push: false, tags: gate-api:ci}
+      - uses: docker/build-push-action@v6
+        with: {context: ./apps/web, push: false, tags: gate-web:ci}

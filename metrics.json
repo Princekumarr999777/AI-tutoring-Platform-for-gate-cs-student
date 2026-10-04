@@ -1,0 +1,1 @@
+{"api_endpoints":6,"unit_tests":2,"integration_tests":1,"test_coverage":null,"rag_eval_score":{"precision":null,"recall":null,"faithfulness":null,"citation_accuracy":null},"average_api_latency_ms":null,"p95_latency_ms":null,"cache_hit_rate":null,"db_size_mb":null,"document_count":0,"question_count":0,"docker_image_size_mb":null,"ci_duration_seconds":null}

@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "gate-ai-tutor-api"
+version = "0.1.0"
+description = "GATE CS learning API"
+authors = ["GATE AI Tutor"]
+packages = [{ include = "src" }]
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115"
+uvicorn = {extras = ["standard"], version = "^0.30"}
+pydantic = "^2.8"
+pydantic-settings = "^2.4"
+email-validator = "^2.2"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0"}
+asyncpg = "^0.29"
+alembic = "^1.13"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+python-jose = {extras = ["cryptography"], version = "^3.3"}
+python-dotenv = "^1.0"
+slowapi = "^0.1.9"
+prometheus-fastapi-instrumentator = "^7.0"
+opentelemetry-instrumentation-fastapi = "^0.48b0"
+celery = {extras = ["redis"], version = "^5.4"}
+structlog = "^24.4"
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3"
+pytest-asyncio = "^0.24"
+pytest-cov = "^5.0"
+httpx = "^0.27"
+black = "^24.8"
+mypy = "^1.11"
+flake8 = "^7.1"
+isort = "^5.13"
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+[tool.black]
+line-length = 100
+[tool.isort]
+profile = "black"
+[build-system]
+requires = ["poetry-core>=1.8"]
+build-backend = "poetry.core.masonry.api"
